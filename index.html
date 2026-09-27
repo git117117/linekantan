@@ -211,7 +211,7 @@
   <script>
     const presets = [
       { id: 1, label: "離れて暮らす親に、子どもから", desc: "70代の親 ← 40〜50代の子ども" },
-      { id: 2, label: "単身赴任の夫へ、家から", desc: "夫 ← 妻・子ども" },
+      { id: 2, label: "単身赴任の夫へ、家族から", desc: "夫 ← 妻・子ども" },
       { id: 3, label: "進学で家を出た子へ、親から", desc: "一人暮らしの学生 ← 親" },
       { id: 4, label: "施設の親へ、子どもから", desc: "施設に入所中の親 ← 子ども" },
       { id: 5, label: "一人暮らしの母へ", desc: "母 ← 子ども" },
@@ -231,7 +231,7 @@
       { id: 19, label: "ペットの当番", desc: "家族間の世話当番" },
       { id: 20, label: "車の送り迎え", desc: "家族間の送迎連絡" },
       { id: 21, label: "自治会・町内", desc: "地域コミュニティ連絡" },
-      { id: 22, label: "ご近所の安否", desc: "近隣住民同士の見守り" },
+      { id: 22, label: "ご近所の安父", desc: "近隣住民同士の見守り" },
       { id: 23, label: "兄弟の安否", desc: "離れて暮らす兄弟姉妹" },
       { id: 24, label: "受験生のお母さんへ", desc: "受験生を支える親へ" },
       { id: 25, label: "資格の勉強中の家族へ", desc: "勉強に励む家族への気遣い" },
@@ -256,7 +256,6 @@
         opt.textContent = `${p.id}. ${p.label}`;
         select.appendChild(opt);
 
-        // 「相手を1種類に絞る。色だけ変えて出すな。」を削除し、カード内をシンプル化
         const card = document.createElement('div');
         card.className = 'bg-slate-50 border border-slate-200 hover:border-[#06C755] hover:bg-emerald-50/30 rounded-xl p-4 cursor-pointer transition flex items-center gap-3 shadow-sm';
         card.onclick = () => selectPreset(p);
