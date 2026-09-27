@@ -130,7 +130,8 @@
               <span>メイン画像 240 × 240 と タブ画像 96 × 74 は、同じ画像を使うこと</span>
             </li>
           </ul>
-          <button onclick="switchTab(2)" class="w-full bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs py-3 rounded-lg shadow-lg transition duration-150 mt-2">
+          <!-- 検出して出すボタン（LINEグリーンの#06C755） -->
+          <button onclick="switchTab(2)" class="w-full bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-xs py-3 rounded-lg shadow-lg transition duration-150 mt-2">
             検出して出す →
           </button>
         </div>
@@ -208,38 +209,23 @@
                 </tr>
               </thead>
               <tbody class="divide-y divide-[#282828] text-gray-300">
-                <tr><td class="p-2.5">文字が違う／誤字</td><td class="p-2.5 text-amber-400">1.7</td><td class="p-2.5">Canva で文字を直す。AI に描かせない</td></tr>
-                <tr><td class="p-2.5">メインがスタンプと違う</td><td class="p-2.5 text-amber-400">1.9</td><td class="p-2.5">メインとタブを、8枚のうち1枚と同じ絵にする</td></tr>
-                <tr><td class="p-2.5">文字だけ</td><td class="p-2.5 text-amber-400">1.6</td><td class="p-2.5">キャラを残す、文字だけの画像は出さない</td></tr>
-                <tr><td class="p-2.5">ハートや絵文字が入っている</td><td class="p-2.5 text-amber-400">2.5</td><td class="p-2.5">タイトル・説明文から絵文字を消す。画像は触らない</td></tr>
-                <tr><td class="p-2.5">権利が不明／二次創作</td><td class="p-2.5 text-amber-400">5.2</td><td class="p-2.5">他人のキャラ「〇〇風」をタイトルから消す</td></tr>
-                <tr><td class="p-2.5">説明と絵が矛盾</td><td class="p-2.5 text-amber-400">1.8</td><td class="p-2.5">説明文を絵に合わせる。画像は触らない</td></tr>
-                <tr><td class="p-2.5">視認性が悪い</td><td class="p-2.5 text-amber-400">1.3</td><td class="p-2.5">線を太く、全体の白抜きをやめる</td></tr>
-                <tr><td class="p-2.5">淡色ばかり／バランス</td><td class="p-2.5 text-amber-400">1.4</td><td class="p-2.5">コントラストを上げる</td></tr>
-                <tr><td class="p-2.5">告知が入っている</td><td class="p-2.5 text-amber-400">2.3</td><td class="p-2.5">「○月発売」「検索して」を説明文から消す</td></tr>
-                <tr><td class="p-2.5">説明が短すぎる</td><td class="p-2.5 text-amber-400">2.6</td><td class="p-2.5">呼び掛けの文を足す。全角80字以内</td></tr>
-                <tr><td class="p-2.5">白石さん１回目（文字の誤り）</td><td class="p-2.5 text-amber-400">1.7</td><td class="p-2.5">文字は Canva</td></tr>
-                <tr><td class="p-2.5">白石さん２回目（メイン画像）</td><td class="p-2.5 text-amber-400">1.9</td><td class="p-2.5">メインを別の絵にしない</td></tr>
+                <tr><td class="p-2.5">文字が違う／誤字</td><td class="p-2.5 text-amber-400 font-bold">1.7</td><td class="p-2.5">Canva で文字を直す。AI に描かせない</td></tr>
+                <tr><td class="p-2.5">メインがスタンプと違う</td><td class="p-2.5 text-amber-400 font-bold">1.9</td><td class="p-2.5">メインとタブを、8枚のうち1枚と同じ絵にする</td></tr>
+                <tr><td class="p-2.5">文字だけ</td><td class="p-2.5 text-amber-400 font-bold">1.6</td><td class="p-2.5">キャラを残す、文字だけの画像は出さない</td></tr>
+                <tr><td class="p-2.5">ハートや絵文字が入っている</td><td class="p-2.5 text-amber-400 font-bold">2.5</td><td class="p-2.5">タイトル・説明文から絵文字を消す。画像は触らない</td></tr>
+                <tr><td class="p-2.5">権利が不明／二次創作</td><td class="p-2.5 text-amber-400 font-bold">5.2</td><td class="p-2.5">他人のキャラ「〇〇風」をタイトルから消す</td></tr>
+                <tr><td class="p-2.5">説明と絵が矛盾</td><td class="p-2.5 text-amber-400 font-bold">1.8</td><td class="p-2.5">説明文を絵に合わせる。画像は触らない</td></tr>
+                <tr><td class="p-2.5">視認性が悪い</td><td class="p-2.5 text-amber-400 font-bold">1.3</td><td class="p-2.5">線を太く、全体の白抜きをやめる</td></tr>
+                <tr><td class="p-2.5">淡色ばかり／バランス</td><td class="p-2.5 text-amber-400 font-bold">1.4</td><td class="p-2.5">コントラストを上げる</td></tr>
+                <tr><td class="p-2.5">告知が入っている</td><td class="p-2.5 text-amber-400 font-bold">2.3</td><td class="p-2.5">「○月発売」「検索して」を説明文から消す</td></tr>
+                <tr><td class="p-2.5">説明が短すぎる</td><td class="p-2.5 text-amber-400 font-bold">2.6</td><td class="p-2.5">呼び掛けの文を足す。全角80字以内</td></tr>
+                <tr><td class="p-2.5">白石さん１回目（文字の誤り）</td><td class="p-2.5 text-amber-400 font-bold">1.7</td><td class="p-2.5">文字は Canva</td></tr>
+                <tr><td class="p-2.5">白石さん２回目（メイン画像）</td><td class="p-2.5 text-amber-400 font-bold">1.9</td><td class="p-2.5">メインを別の絵にしない</td></tr>
               </tbody>
             </table>
           </div>
-          <p class="text-[11px] text-gray-500">44条の全文は creator.line.me の審査ガイドライン。上は、短い通知から番号へ落とすための早見。番号が5倍の内なら、ガイドラインを覗いて番号を踏む。</p>
-        </div>
 
-        <!-- C 出す場所はパソコン -->
-        <div class="pt-4 border-t border-[#2e2e2e] space-y-2">
-          <div class="flex items-center gap-2">
-            <span class="bg-amber-500 text-black text-xs px-2 py-0.5 rounded font-bold">C</span>
-            <h3 class="text-white font-bold text-sm">出す場所はパソコン</h3>
-          </div>
-          <p class="text-xs text-gray-300 leading-relaxed">
-            アプリからリジェクトされたスタンプは、編集も再申請もできない。最初から PC。<br>
-            英語タイトルが要ったら、気にしない。英語に1文字足す。<br>
-            「AIの使用」は 使用しています。<br>
-            販売開始は 自動で販売を開始。既定の手数料のままだと、承認されても棚に並ばない。<br>
-            リクエストを押すのは自分。
-          </p>
-          <button onclick="switchTab(3)" class="w-full bg-[#2a2a2a] hover:bg-[#333] border border-[#444] text-white font-bold text-xs py-3 rounded-lg transition duration-150 mt-2">
+          <button onclick="switchTab(3)" class="w-full bg-[#2a2a2a] hover:bg-[#333] border border-[#444] text-white font-bold text-xs py-3 rounded-lg transition duration-150 mt-4">
             次の棚 →
           </button>
         </div>
@@ -253,7 +239,6 @@
           <span class="bg-amber-500 text-black text-xs px-2 py-0.5 rounded font-bold">A</span>
           <h3 class="text-white font-bold text-sm">２回目以降は、相手を変える</h3>
         </div>
-        <p class="text-xs text-gray-400">同じ絵を型だけ変えて出すな。描いた人は「誰に送らせるか」を1種類に絞っていた。</p>
 
         <!-- グリッドリスト（30セット） -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="presetGrid">
@@ -402,8 +387,8 @@
         const btn = document.getElementById(`tabBtn${i}`);
         const content = document.getElementById(`tabContent${i}`);
         if (i === tabNum) {
-          btn.className = 'py-3 px-4 rounded-xl border border-amber-500 bg-amber-500 text-black text-center font-bold text-sm transition-all duration-200 shadow-md';
-          btn.querySelector('div').className = 'text-xs text-black/70 font-semibold';
+          btn.className = 'py-3 px-4 rounded-xl border border-[#06C755] bg-[#06C755] text-white text-center font-bold text-sm transition-all duration-200 shadow-md';
+          btn.querySelector('div').className = 'text-xs text-white/80 font-semibold';
           content.classList.remove('hidden');
         } else {
           btn.className = 'py-3 px-4 rounded-xl border border-[#333] bg-[#1e1e1e] hover:bg-[#252525] text-gray-300 text-center font-bold text-sm transition-all duration-200';
