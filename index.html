@@ -18,6 +18,13 @@
       transform: scale(1.02);
       box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
     }
+    /* セレクトボックスのドロップダウン項目（option）の押しやすさ向上 */
+    select option {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      padding: 12px 14px;
+      font-size: 15px;
+    }
   </style>
 </head>
 <body class="min-h-screen py-10 px-4 flex justify-center">
@@ -38,15 +45,15 @@
         <h2 class="text-amber-400 text-sm font-semibold mb-1">ここだけ決めれば、コピペ文章が完成！</h2>
         <label class="text-xs text-gray-400 block mb-2">誰に送るか（２回目以降も、ここを変える）</label>
         
-        <!-- セレクトボックス -->
-        <select id="targetSelect" class="w-full bg-[#181818] border border-[#3e3e3e] text-white text-sm rounded-lg p-3 focus:outline-none focus:border-amber-500 transition-colors">
+        <!-- セレクトボックス（スマホでタップしやすいよう縦幅拡大: py-4, text-base, min-h-[54px]） -->
+        <select id="targetSelect" class="w-full bg-[#181818] border border-[#3e3e3e] text-white text-base rounded-xl px-4 py-4 min-h-[54px] focus:outline-none focus:border-amber-500 transition-colors shadow-inner cursor-pointer font-medium">
           <!-- JSで自動生成 -->
         </select>
       </div>
 
       <div>
         <label class="text-xs text-gray-400 block mb-2">リストに無い相手はここに入力（任意）</label>
-        <input type="text" id="customInput" placeholder="例：夜勤明けの旦那に" class="w-full bg-[#181818] border border-[#3e3e3e] text-white text-sm rounded-lg p-3 placeholder-gray-600 focus:outline-none focus:border-amber-500 transition-colors">
+        <input type="text" id="customInput" placeholder="例：夜勤明けの旦那に" class="w-full bg-[#181818] border border-[#3e3e3e] text-white text-base rounded-xl px-4 py-3.5 placeholder-gray-600 focus:outline-none focus:border-amber-500 transition-colors">
       </div>
 
       <!-- 送る相手プレビュー -->
@@ -86,7 +93,7 @@
         <div class="bg-[#181818] border border-[#2e2e2e] rounded-lg p-4 space-y-3">
           <div class="text-xs font-bold text-amber-400">コピペ１ ／ Geminiなどに、このままコピペ！</div>
           <p class="text-xs text-gray-300 leading-relaxed font-mono whitespace-pre-line" id="prompt1Preview"></p>
-          <button id="prompt1Btn" onclick="copyText('prompt1')" class="w-full bg-[#2a2a2a] hover:bg-[#333] border border-[#444] text-white text-xs font-bold py-3 px-4 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow cursor-pointer">
+          <button id="prompt1Btn" onclick="copyText('prompt1')" class="w-full bg-[#2a2a2a] hover:bg-[#333] border border-[#444] text-white text-xs font-bold py-3.5 px-4 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow cursor-pointer">
             <span id="prompt1Icon">
               <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
             </span>
@@ -98,7 +105,7 @@
         <div class="bg-[#181818] border border-[#2e2e2e] rounded-lg p-4 space-y-3">
           <div class="text-xs font-bold text-amber-400">コピペ２ ／ １枚に複数の画像を入れる！</div>
           <p class="text-xs text-gray-300 leading-relaxed font-mono whitespace-pre-line" id="prompt2Preview"></p>
-          <button id="prompt2Btn" onclick="copyText('prompt2')" class="w-full bg-[#2a2a2a] hover:bg-[#333] border border-[#444] text-white text-xs font-bold py-3 px-4 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow cursor-pointer">
+          <button id="prompt2Btn" onclick="copyText('prompt2')" class="w-full bg-[#2a2a2a] hover:bg-[#333] border border-[#444] text-white text-xs font-bold py-3.5 px-4 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow cursor-pointer">
             <span id="prompt2Icon">
               <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
             </span>
@@ -130,8 +137,7 @@
               <span>メイン画像 240 × 240 と タブ画像 96 × 74 は、同じ画像を使うこと</span>
             </li>
           </ul>
-          <!-- 検出して出すボタン（LINEグリーンの#06C755） -->
-          <button onclick="switchTab(2)" class="w-full bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-xs py-3 rounded-lg shadow-lg transition duration-150 mt-2">
+          <button onclick="switchTab(2)" class="w-full bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-xs py-3.5 rounded-lg shadow-lg transition duration-150 mt-2">
             検出して出す →
           </button>
         </div>
@@ -225,7 +231,7 @@
             </table>
           </div>
 
-          <button onclick="switchTab(3)" class="w-full bg-[#2a2a2a] hover:bg-[#333] border border-[#444] text-white font-bold text-xs py-3 rounded-lg transition duration-150 mt-4">
+          <button onclick="switchTab(3)" class="w-full bg-[#2a2a2a] hover:bg-[#333] border border-[#444] text-white font-bold text-xs py-3.5 rounded-lg transition duration-150 mt-4">
             次の棚 →
           </button>
         </div>
@@ -282,7 +288,7 @@
       { id: 25, label: "資格の勉強中の家族へ", desc: "勉強に励む家族への気遣い", actions: "勉強お疲れ様！／集中できてる？／適度に休憩してね／返信不要（集中して）／夜食あるよ／努力は実る！／肩の力抜いてね／今日は早めに寝てね" },
       { id: 26, label: "通院のリマインド", desc: "通院日の確認・連絡", actions: "明日は病院の日だよ／診察券・保険証持った？／気をつけて行ってきてね／返信不要（確認だけでOK）／先生になんて言われた？／お薬忘れずにもらってね／無理せずタクシー使ってね／お疲れ様でした" },
       { id: 27, label: "天気と体調だけ", desc: "気候変化時の体調伺い", actions: "今日は大雨気をつけて／寒くなるから暖かくして／猛暑日だから水分とって／返信不要／台風注意してね／気圧の変化大丈夫？／滑らないように気をつけて／無事に過ごしてね" },
-      { id: 28, label: "在宅勤務の夫婦", desc: "家庭内での業務中連絡", actions: "今から会議（静かに）／お昼どうする？／お茶淹れたよ／返信不要／宅配便受け取った／会議終わりました／コンビニ行くけど何かいる？／今日もお疲れ様" },
+      { id: 28, label: "在宅勤務の夫婦", desc: "家庭内での業務中連絡", actions: "今から会議（静かに）／お昼どうする？／お茶 warlike 淹れたよ／返信不要／宅配便受け取った／会議終わりました／コンビニ行くけど何かいる？／今日もお疲れ様" },
       { id: 29, label: "推し活のメンバー", desc: "仲間同士のイベント・連絡", actions: "当選したー！／チケット発券完了／会場着きました／返信ゆっくりでOK／グッズ買えた！／最高すぎた…／気をつけて帰ってね／次も連番よろしく！" },
       { id: 30, label: "介護の親子・毎日のひとこと", desc: "日常のさりげない確認", actions: "今日もお疲れ様／デイサービス楽しかった？／しっかり食べられた？／返信気にしないでね／明日の準備できたよ／ゆっくり休んでね／いつも見守ってるよ／おやすみなさい" }
     ];
