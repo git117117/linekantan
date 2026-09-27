@@ -7,8 +7,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-color: #121212;
-      color: #e0e0e0;
+      background-color: #f8fafc;
+      color: #1e293b;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
     .btn-copied {
@@ -18,10 +18,10 @@
       transform: scale(1.02);
       box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
     }
-    /* セレクトボックスのドロップダウン項目（option）の押しやすさ向上 */
+    /* セレクトボックスのドロップダウン項目（option）のスタイル */
     select option {
-      background-color: #1e1e1e;
-      color: #ffffff;
+      background-color: #ffffff;
+      color: #1e293b;
       padding: 12px 14px;
       font-size: 15px;
     }
@@ -32,112 +32,112 @@
   <div class="w-full max-w-4xl space-y-6">
 
     <!-- ヘッダーカード -->
-    <div class="bg-[#1e1e1e] border border-[#2e2e2e] rounded-xl p-6 shadow-xl relative">
-      <h1 class="text-2xl font-bold text-white mb-2 tracking-wide">LINEスタンプをAIで作っちゃうニャン！</h1>
-      <p class="text-gray-400 text-sm leading-relaxed">
+    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm relative">
+      <h1 class="text-2xl font-bold text-slate-900 mb-2 tracking-wide">LINEスタンプをAIで作っちゃうニャン！</h1>
+      <p class="text-slate-500 text-sm leading-relaxed">
         誰が誰に送るスタンプなのか１つ選ぶ。あとはコピペ、背景透過、チャチャッと販売！
       </p>
     </div>
 
     <!-- 入力セクション -->
-    <div class="bg-[#1e1e1e] border border-[#2e2e2e] rounded-xl p-6 shadow-xl space-y-5">
+    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-5">
       <div>
-        <h2 class="text-amber-400 text-sm font-semibold mb-1">ここだけ決めれば、コピペ文章が完成！</h2>
-        <label class="text-xs text-gray-400 block mb-2">誰に送るか（２回目以降も、ここを変える）</label>
+        <h2 class="text-emerald-600 text-sm font-bold mb-1">ここだけ決めれば、コピペ文章が完成！</h2>
+        <label class="text-xs text-slate-500 block mb-2">誰に送るか（２回目以降も、ここを変える）</label>
         
-        <!-- セレクトボックス（スマホでタップしやすいよう縦幅拡大: py-4, text-base, min-h-[54px]） -->
-        <select id="targetSelect" class="w-full bg-[#181818] border border-[#3e3e3e] text-white text-base rounded-xl px-4 py-4 min-h-[54px] focus:outline-none focus:border-amber-500 transition-colors shadow-inner cursor-pointer font-medium">
+        <!-- セレクトボックス（白基調＋スマホ対応） -->
+        <select id="targetSelect" class="w-full bg-slate-50 border border-slate-300 text-slate-900 text-base rounded-xl px-4 py-4 min-h-[54px] focus:outline-none focus:border-[#06C755] focus:ring-2 focus:ring-[#06C755]/20 transition-all cursor-pointer font-medium shadow-sm">
           <!-- JSで自動生成 -->
         </select>
       </div>
 
       <div>
-        <label class="text-xs text-gray-400 block mb-2">リストに無い相手はここに入力（任意）</label>
-        <input type="text" id="customInput" placeholder="例：夜勤明けの旦那に" class="w-full bg-[#181818] border border-[#3e3e3e] text-white text-base rounded-xl px-4 py-3.5 placeholder-gray-600 focus:outline-none focus:border-amber-500 transition-colors">
+        <label class="text-xs text-slate-500 block mb-2">リストに無い相手はここに入力（任意）</label>
+        <input type="text" id="customInput" placeholder="例：夜勤明けの旦那に" class="w-full bg-slate-50 border border-slate-300 text-slate-900 text-base rounded-xl px-4 py-3.5 placeholder-slate-400 focus:outline-none focus:border-[#06C755] focus:ring-2 focus:ring-[#06C755]/20 transition-all shadow-sm">
       </div>
 
       <!-- 送る相手プレビュー -->
-      <div class="text-xs text-gray-400 pt-2 border-t border-[#2e2e2e] flex flex-wrap items-center gap-2">
+      <div class="text-xs text-slate-500 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-2">
         <span>送る相手：</span>
-        <span id="targetBadge" class="bg-amber-500 text-black px-2 py-0.5 rounded font-bold text-xs"></span>
-        <span class="text-gray-500">／</span>
-        <span id="targetDesc" class="text-gray-300"></span>
+        <span id="targetBadge" class="bg-amber-100 text-amber-800 border border-amber-300 px-2.5 py-0.5 rounded-full font-bold text-xs"></span>
+        <span class="text-slate-300">／</span>
+        <span id="targetDesc" class="text-slate-600 font-medium"></span>
       </div>
     </div>
 
     <!-- タブ切り替えボタン -->
     <div class="grid grid-cols-3 gap-3">
-      <button onclick="switchTab(1)" id="tabBtn1" class="py-3 px-4 rounded-xl border text-center font-bold text-sm transition-all duration-200">
-        <div class="text-xs text-gray-400 font-normal">1</div>
+      <button onclick="switchTab(1)" id="tabBtn1" class="py-3 px-4 rounded-xl border text-center font-bold text-sm transition-all duration-200 shadow-sm">
+        <div class="text-xs font-normal opacity-80">1</div>
         作る
       </button>
-      <button onclick="switchTab(2)" id="tabBtn2" class="py-3 px-4 rounded-xl border text-center font-bold text-sm transition-all duration-200">
-        <div class="text-xs text-gray-400 font-normal">2</div>
+      <button onclick="switchTab(2)" id="tabBtn2" class="py-3 px-4 rounded-xl border text-center font-bold text-sm transition-all duration-200 shadow-sm">
+        <div class="text-xs font-normal opacity-80">2</div>
         検品して出す
       </button>
-      <button onclick="switchTab(3)" id="tabBtn3" class="py-3 px-4 rounded-xl border text-center font-bold text-sm transition-all duration-200">
-        <div class="text-xs text-gray-400 font-normal">3</div>
+      <button onclick="switchTab(3)" id="tabBtn3" class="py-3 px-4 rounded-xl border text-center font-bold text-sm transition-all duration-200 shadow-sm">
+        <div class="text-xs font-normal opacity-80">3</div>
         次の棚
       </button>
     </div>
 
     <!-- タブ 1: 作る -->
     <div id="tabContent1" class="space-y-6">
-      <div class="bg-[#1e1e1e] border border-[#2e2e2e] rounded-xl p-6 shadow-xl space-y-4">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
         <div class="flex items-center gap-2">
-          <span class="bg-amber-500 text-black text-xs px-2 py-0.5 rounded font-bold">A</span>
-          <h3 class="text-white font-bold text-sm">２回コピペで完了！</h3>
+          <span class="bg-[#06C755] text-white text-xs px-2 py-0.5 rounded font-bold">A</span>
+          <h3 class="text-slate-900 font-bold text-sm">２回コピペで完了！</h3>
         </div>
 
         <!-- コピペ 1 -->
-        <div class="bg-[#181818] border border-[#2e2e2e] rounded-lg p-4 space-y-3">
-          <div class="text-xs font-bold text-amber-400">コピペ１ ／ Geminiなどに、このままコピペ！</div>
-          <p class="text-xs text-gray-300 leading-relaxed font-mono whitespace-pre-line" id="prompt1Preview"></p>
-          <button id="prompt1Btn" onclick="copyText('prompt1')" class="w-full bg-[#2a2a2a] hover:bg-[#333] border border-[#444] text-white text-xs font-bold py-3.5 px-4 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow cursor-pointer">
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+          <div class="text-xs font-bold text-emerald-700">コピペ１ ／ Geminiなどに、このままコピペ！</div>
+          <p class="text-xs text-slate-700 leading-relaxed font-mono whitespace-pre-line bg-white p-3 rounded-lg border border-slate-200" id="prompt1Preview"></p>
+          <button id="prompt1Btn" onclick="copyText('prompt1')" class="w-full bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold py-3.5 px-4 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow cursor-pointer">
             <span id="prompt1Icon">
-              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+              <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
             </span>
             <span id="prompt1BtnText">この文をコピー</span>
           </button>
         </div>
 
         <!-- コピペ 2 -->
-        <div class="bg-[#181818] border border-[#2e2e2e] rounded-lg p-4 space-y-3">
-          <div class="text-xs font-bold text-amber-400">コピペ２ ／ １枚に複数の画像を入れる！</div>
-          <p class="text-xs text-gray-300 leading-relaxed font-mono whitespace-pre-line" id="prompt2Preview"></p>
-          <button id="prompt2Btn" onclick="copyText('prompt2')" class="w-full bg-[#2a2a2a] hover:bg-[#333] border border-[#444] text-white text-xs font-bold py-3.5 px-4 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow cursor-pointer">
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+          <div class="text-xs font-bold text-emerald-700">コピペ２ ／ １枚に複数の画像を入れる！</div>
+          <p class="text-xs text-slate-700 leading-relaxed font-mono whitespace-pre-line bg-white p-3 rounded-lg border border-slate-200" id="prompt2Preview"></p>
+          <button id="prompt2Btn" onclick="copyText('prompt2')" class="w-full bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold py-3.5 px-4 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow cursor-pointer">
             <span id="prompt2Icon">
-              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+              <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
             </span>
             <span id="prompt2BtnText">この文をコピー</span>
           </button>
         </div>
 
         <!-- B 画像の背景を透過して、LINEスタンプ指定の3サイズにする -->
-        <div class="pt-4 border-t border-[#2e2e2e] space-y-3">
+        <div class="pt-4 border-t border-slate-100 space-y-3">
           <div class="flex items-center gap-2">
-            <span class="bg-amber-500 text-black text-xs px-2 py-0.5 rounded font-bold">B</span>
-            <h3 class="text-white font-bold text-sm">画像の背景を透過して、LINEスタンプ指定の3サイズにする</h3>
+            <span class="bg-[#06C755] text-white text-xs px-2 py-0.5 rounded font-bold">B</span>
+            <h3 class="text-slate-900 font-bold text-sm">画像の背景を透過して、LINEスタンプ指定の3サイズにする</h3>
           </div>
-          <ul class="text-xs text-gray-300 space-y-2 leading-relaxed pl-1">
+          <ul class="text-xs text-slate-600 space-y-2 leading-relaxed pl-1 bg-slate-50 p-4 rounded-xl border border-slate-200">
             <li class="flex items-start gap-2">
-              <span class="text-amber-400">•</span>
+              <span class="text-emerald-600 font-bold">•</span>
               <span>背景透過</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-amber-400">•</span>
+              <span class="text-emerald-600 font-bold">•</span>
               <span>上下左右に 10px以上の余白</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-amber-400">•</span>
+              <span class="text-emerald-600 font-bold">•</span>
               <span>370 × 320 （公式の最大サイズ）</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-amber-400">•</span>
+              <span class="text-emerald-600 font-bold">•</span>
               <span>メイン画像 240 × 240 と タブ画像 96 × 74 は、同じ画像を使うこと</span>
             </li>
           </ul>
-          <button onclick="switchTab(2)" class="w-full bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-xs py-3.5 rounded-lg shadow-lg transition duration-150 mt-2">
+          <button onclick="switchTab(2)" class="w-full bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-xs py-3.5 rounded-xl shadow-md transition duration-150 mt-2">
             検出して出す →
           </button>
         </div>
@@ -146,92 +146,92 @@
 
     <!-- タブ 2: 検品して出す -->
     <div id="tabContent2" class="space-y-6 hidden">
-      <div class="bg-[#1e1e1e] border border-[#2e2e2e] rounded-xl p-6 shadow-xl space-y-5">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-5">
         
         <!-- ヘッダーと進捗率 -->
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
-            <span class="bg-amber-500 text-black text-xs px-2 py-0.5 rounded font-bold">A</span>
-            <h3 class="text-white font-bold text-sm">出す前に、目で見える４つ</h3>
+            <span class="bg-[#06C755] text-white text-xs px-2 py-0.5 rounded font-bold">A</span>
+            <h3 class="text-slate-900 font-bold text-sm">出す前に、目で見える４つ</h3>
           </div>
-          <span id="progressText" class="text-xs font-semibold text-gray-400">0 / 4</span>
+          <span id="progressText" class="text-xs font-semibold text-slate-500">0 / 4</span>
         </div>
 
-        <p class="text-xs text-gray-400 -mt-2">全部チェックが付いたら、出していい。他は審査の側が見る。</p>
+        <p class="text-xs text-slate-500 -mt-2">全部チェックが付いたら、出していい。他は審査の側が見る。</p>
 
-        <!-- 上部の横長プログレスバー（インジケーター） -->
-        <div class="w-full bg-[#141414] rounded-full h-2.5 overflow-hidden border border-[#2c2c2c] p-[1px]">
-          <div id="progressBar" class="bg-gradient-to-r from-amber-500 to-emerald-400 h-full rounded-full transition-all duration-300" style="width: 0%;"></div>
+        <!-- 上部の横長プログレスバー -->
+        <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden border border-slate-200">
+          <div id="progressBar" class="bg-[#06C755] h-full rounded-full transition-all duration-300" style="width: 0%;"></div>
         </div>
 
         <!-- チェックリスト項目 -->
         <div class="space-y-3">
           <!-- 項目 1 -->
-          <div onclick="toggleCheck(0)" id="itemBox0" class="flex items-center gap-3.5 p-3.5 bg-[#181818] border border-[#2e2e2e] rounded-lg cursor-pointer transition select-none">
-            <div id="checkIcon0" class="w-5 h-5 rounded border border-[#444] bg-[#222] flex items-center justify-center flex-shrink-0 transition"></div>
-            <span class="text-xs text-gray-200">サイズ 370×320以内で、偶数か。メインは240×240、タブは96×74。</span>
+          <div onclick="toggleCheck(0)" id="itemBox0" class="flex items-center gap-3.5 p-3.5 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer transition select-none hover:border-slate-300">
+            <div id="checkIcon0" class="w-5 h-5 rounded border border-slate-300 bg-white flex items-center justify-center flex-shrink-0 transition"></div>
+            <span class="text-xs text-slate-700">サイズ 370×320以内で、偶数か。メインは240×240、タブは96×74。</span>
           </div>
 
           <!-- 項目 2 -->
-          <div onclick="toggleCheck(1)" id="itemBox1" class="flex items-center gap-3.5 p-3.5 bg-[#181818] border border-[#2e2e2e] rounded-lg cursor-pointer transition select-none">
-            <div id="checkIcon1" class="w-5 h-5 rounded border border-[#444] bg-[#222] flex items-center justify-center flex-shrink-0 transition"></div>
-            <span class="text-xs text-gray-200">背景を黒い色の上で白いフチが出ないか、透過になっているか。</span>
+          <div onclick="toggleCheck(1)" id="itemBox1" class="flex items-center gap-3.5 p-3.5 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer transition select-none hover:border-slate-300">
+            <div id="checkIcon1" class="w-5 h-5 rounded border border-slate-300 bg-white flex items-center justify-center flex-shrink-0 transition"></div>
+            <span class="text-xs text-slate-700">背景を黒い色の上で白いフチが出ないか、透過になっているか。</span>
           </div>
 
           <!-- 項目 3 -->
-          <div onclick="toggleCheck(2)" id="itemBox2" class="flex items-center gap-3.5 p-3.5 bg-[#181818] border border-[#2e2e2e] rounded-lg cursor-pointer transition select-none">
-            <div id="checkIcon2" class="w-5 h-5 rounded border border-[#444] bg-[#222] flex items-center justify-center flex-shrink-0 transition"></div>
-            <span class="text-xs text-gray-200">余白端に触れてないか。公式は外枠から10pxぐらい。</span>
+          <div onclick="toggleCheck(2)" id="itemBox2" class="flex items-center gap-3.5 p-3.5 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer transition select-none hover:border-slate-300">
+            <div id="checkIcon2" class="w-5 h-5 rounded border border-slate-300 bg-white flex items-center justify-center flex-shrink-0 transition"></div>
+            <span class="text-xs text-slate-700">余白端に触れてないか。公式は外枠から10pxぐらい。</span>
           </div>
 
           <!-- 項目 4 -->
-          <div onclick="toggleCheck(3)" id="itemBox3" class="flex items-center gap-3.5 p-3.5 bg-[#181818] border border-[#2e2e2e] rounded-lg cursor-pointer transition select-none">
-            <div id="checkIcon3" class="w-5 h-5 rounded border border-[#444] bg-[#222] flex items-center justify-center flex-shrink-0 transition"></div>
-            <span class="text-xs text-gray-200">スマホのトークの大きさまで縮めて、文字が読めて線が消えないか。</span>
+          <div onclick="toggleCheck(3)" id="itemBox3" class="flex items-center gap-3.5 p-3.5 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer transition select-none hover:border-slate-300">
+            <div id="checkIcon3" class="w-5 h-5 rounded border border-slate-300 bg-white flex items-center justify-center flex-shrink-0 transition"></div>
+            <span class="text-xs text-slate-700">スマホのトークの大きさまで縮めて、文字が読めて線が消えないか。</span>
           </div>
         </div>
 
         <!-- 状態バナー -->
-        <div id="checkStatusBanner" class="p-3 bg-red-950/40 border border-red-900/60 rounded-lg text-xs flex items-center justify-between">
-          <span id="checkStatusTitle" class="font-bold text-red-400">まだ４つ、見てない</span>
-          <span class="text-[11px] text-gray-400">サイズ・フチ・余白・縮、通るまで、リクエストに進まない。</span>
+        <div id="checkStatusBanner" class="p-3 bg-red-50 border border-red-200 rounded-xl text-xs flex items-center justify-between">
+          <span id="checkStatusTitle" class="font-bold text-red-600">まだ４つ、見てない</span>
+          <span class="text-[11px] text-slate-500">サイズ・フチ・余白・縮、通るまで、リクエストに進まない。</span>
         </div>
 
         <!-- B 落ちたら、短い通知を番号に当てる -->
-        <div class="pt-4 border-t border-[#2e2e2e] space-y-3">
+        <div class="pt-4 border-t border-slate-100 space-y-3">
           <div class="flex items-center gap-2">
-            <span class="bg-amber-500 text-black text-xs px-2 py-0.5 rounded font-bold">B</span>
-            <h3 class="text-white font-bold text-sm">落ちたら、短い通知を番号に当てる</h3>
+            <span class="bg-[#06C755] text-white text-xs px-2 py-0.5 rounded font-bold">B</span>
+            <h3 class="text-slate-900 font-bold text-sm">落ちたら、短い通知を番号に当てる</h3>
           </div>
-          <p class="text-xs text-gray-400">「くわしく書かれていない」ことがあります。短くても表に当てて、直す。漢字や自由等は手帳で決める。</p>
+          <p class="text-xs text-slate-500">「くわしく書かれていない」ことがあります。短くても表に当てて、直す。漢字や自由等は手帳で決める。</p>
           
-          <div class="overflow-x-auto border border-[#2e2e2e] rounded-lg">
+          <div class="overflow-x-auto border border-slate-200 rounded-xl shadow-sm">
             <table class="w-full text-left text-xs border-collapse">
-              <thead class="bg-[#181818] text-gray-400 border-b border-[#2e2e2e]">
+              <thead class="bg-slate-100 text-slate-600 border-b border-slate-200">
                 <tr>
-                  <th class="p-2.5">短い通知のイメージ</th>
-                  <th class="p-2.5 w-20">番号</th>
-                  <th class="p-2.5">直す場所</th>
+                  <th class="p-3">短い通知のイメージ</th>
+                  <th class="p-3 w-20">番号</th>
+                  <th class="p-3">直す場所</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-[#282828] text-gray-300">
-                <tr><td class="p-2.5">文字が違う／誤字</td><td class="p-2.5 text-amber-400 font-bold">1.7</td><td class="p-2.5">Canva で文字を直す。AI に描かせない</td></tr>
-                <tr><td class="p-2.5">メインがスタンプと違う</td><td class="p-2.5 text-amber-400 font-bold">1.9</td><td class="p-2.5">メインとタブを、8枚のうち1枚と同じ絵にする</td></tr>
-                <tr><td class="p-2.5">文字だけ</td><td class="p-2.5 text-amber-400 font-bold">1.6</td><td class="p-2.5">キャラを残す、文字だけの画像は出さない</td></tr>
-                <tr><td class="p-2.5">ハートや絵文字が入っている</td><td class="p-2.5 text-amber-400 font-bold">2.5</td><td class="p-2.5">タイトル・説明文から絵文字を消す。画像は触らない</td></tr>
-                <tr><td class="p-2.5">権利が不明／二次創作</td><td class="p-2.5 text-amber-400 font-bold">5.2</td><td class="p-2.5">他人のキャラ「〇〇風」をタイトルから消す</td></tr>
-                <tr><td class="p-2.5">説明と絵が矛盾</td><td class="p-2.5 text-amber-400 font-bold">1.8</td><td class="p-2.5">説明文を絵に合わせる。画像は触らない</td></tr>
-                <tr><td class="p-2.5">視認性が悪い</td><td class="p-2.5 text-amber-400 font-bold">1.3</td><td class="p-2.5">線を太く、全体の白抜きをやめる</td></tr>
-                <tr><td class="p-2.5">淡色ばかり／バランス</td><td class="p-2.5 text-amber-400 font-bold">1.4</td><td class="p-2.5">コントラストを上げる</td></tr>
-                <tr><td class="p-2.5">告知が入っている</td><td class="p-2.5 text-amber-400 font-bold">2.3</td><td class="p-2.5">「○月発売」「検索して」を説明文から消す</td></tr>
-                <tr><td class="p-2.5">説明が短すぎる</td><td class="p-2.5 text-amber-400 font-bold">2.6</td><td class="p-2.5">呼び掛けの文を足す。全角80字以内</td></tr>
-                <tr><td class="p-2.5">白石さん１回目（文字の誤り）</td><td class="p-2.5 text-amber-400 font-bold">1.7</td><td class="p-2.5">文字は Canva</td></tr>
-                <tr><td class="p-2.5">白石さん２回目（メイン画像）</td><td class="p-2.5 text-amber-400 font-bold">1.9</td><td class="p-2.5">メインを別の絵にしない</td></tr>
+              <tbody class="divide-y divide-slate-100 text-slate-700 bg-white">
+                <tr><td class="p-3 font-medium">文字が違う／誤字</td><td class="p-3 text-emerald-600 font-bold">1.7</td><td class="p-3">Canva で文字を直す。AI に描かせない</td></tr>
+                <tr><td class="p-3 font-medium">メインがスタンプと違う</td><td class="p-3 text-emerald-600 font-bold">1.9</td><td class="p-3">メインとタブを、8枚のうち1枚と同じ絵にする</td></tr>
+                <tr><td class="p-3 font-medium">文字だけ</td><td class="p-3 text-emerald-600 font-bold">1.6</td><td class="p-3">キャラを残す、文字だけの画像は出さない</td></tr>
+                <tr><td class="p-3 font-medium">ハートや絵文字が入っている</td><td class="p-3 text-emerald-600 font-bold">2.5</td><td class="p-3">タイトル・説明文から絵文字を消す。画像は触らない</td></tr>
+                <tr><td class="p-3 font-medium">権利が不明／二次創作</td><td class="p-3 text-emerald-600 font-bold">5.2</td><td class="p-3">他人のキャラ「〇〇風」をタイトルから消す</td></tr>
+                <tr><td class="p-3 font-medium">説明と絵が矛盾</td><td class="p-3 text-emerald-600 font-bold">1.8</td><td class="p-3">説明文を絵に合わせる。画像は触らない</td></tr>
+                <tr><td class="p-3 font-medium">視認性が悪い</td><td class="p-3 text-emerald-600 font-bold">1.3</td><td class="p-3">線を太く、全体の白抜きをやめる</td></tr>
+                <tr><td class="p-3 font-medium">淡色ばかり／バランス</td><td class="p-3 text-emerald-600 font-bold">1.4</td><td class="p-3">コントラストを上げる</td></tr>
+                <tr><td class="p-3 font-medium">告知が入っている</td><td class="p-3 text-emerald-600 font-bold">2.3</td><td class="p-3">「○月発売」「検索して」を説明文から消す</td></tr>
+                <tr><td class="p-3 font-medium">説明が短すぎる</td><td class="p-3 text-emerald-600 font-bold">2.6</td><td class="p-3">呼び掛けの文を足す。全角80字以内</td></tr>
+                <tr><td class="p-3 font-medium">白石さん１回目（文字の誤り）</td><td class="p-3 text-emerald-600 font-bold">1.7</td><td class="p-3">文字は Canva</td></tr>
+                <tr><td class="p-3 font-medium">白石さん２回目（メイン画像）</td><td class="p-3 text-emerald-600 font-bold">1.9</td><td class="p-3">メインを別の絵にしない</td></tr>
               </tbody>
             </table>
           </div>
 
-          <button onclick="switchTab(3)" class="w-full bg-[#2a2a2a] hover:bg-[#333] border border-[#444] text-white font-bold text-xs py-3.5 rounded-lg transition duration-150 mt-4">
+          <button onclick="switchTab(3)" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs py-3.5 rounded-xl shadow-md transition duration-150 mt-4">
             次の棚 →
           </button>
         </div>
@@ -240,10 +240,10 @@
 
     <!-- タブ 3: 次の棚 -->
     <div id="tabContent3" class="space-y-6 hidden">
-      <div class="bg-[#1e1e1e] border border-[#2e2e2e] rounded-xl p-6 shadow-xl space-y-5">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-5">
         <div class="flex items-center gap-2">
-          <span class="bg-amber-500 text-black text-xs px-2 py-0.5 rounded font-bold">A</span>
-          <h3 class="text-white font-bold text-sm">２回目以降は、相手を変える</h3>
+          <span class="bg-[#06C755] text-white text-xs px-2 py-0.5 rounded font-bold">A</span>
+          <h3 class="text-slate-900 font-bold text-sm">２回目以降は、相手を変える</h3>
         </div>
 
         <!-- グリッドリスト（30セット） -->
@@ -251,7 +251,7 @@
           <!-- JSで自動生成 -->
         </div>
 
-        <p class="text-[11px] text-gray-500 pt-2 text-center">
+        <p class="text-[11px] text-slate-400 pt-2 text-center">
           通信しない、言葉等はここには書いていない。リクエストと再申請は自分で押す。
         </p>
       </div>
@@ -288,7 +288,7 @@
       { id: 25, label: "資格の勉強中の家族へ", desc: "勉強に励む家族への気遣い", actions: "勉強お疲れ様！／集中できてる？／適度に休憩してね／返信不要（集中して）／夜食あるよ／努力は実る！／肩の力抜いてね／今日は早めに寝てね" },
       { id: 26, label: "通院のリマインド", desc: "通院日の確認・連絡", actions: "明日は病院の日だよ／診察券・保険証持った？／気をつけて行ってきてね／返信不要（確認だけでOK）／先生になんて言われた？／お薬忘れずにもらってね／無理せずタクシー使ってね／お疲れ様でした" },
       { id: 27, label: "天気と体調だけ", desc: "気候変化時の体調伺い", actions: "今日は大雨気をつけて／寒くなるから暖かくして／猛暑日だから水分とって／返信不要／台風注意してね／気圧の変化大丈夫？／滑らないように気をつけて／無事に過ごしてね" },
-      { id: 28, label: "在宅勤務の夫婦", desc: "家庭内での業務中連絡", actions: "今から会議（静かに）／お昼どうする？／お茶 warlike 淹れたよ／返信不要／宅配便受け取った／会議終わりました／コンビニ行くけど何かいる？／今日もお疲れ様" },
+      { id: 28, label: "在宅勤務の夫婦", desc: "家庭内での業務中連絡", actions: "今から会議（静かに）／お昼どうする？／お茶淹れたよ／返信不要／宅配便受け取った／会議終わりました／コンビニ行くけど何かいる？／今日もお疲れ様" },
       { id: 29, label: "推し活のメンバー", desc: "仲間同士のイベント・連絡", actions: "当選したー！／チケット発券完了／会場着きました／返信ゆっくりでOK／グッズ買えた！／最高すぎた…／気をつけて帰ってね／次も連番よろしく！" },
       { id: 30, label: "介護の親子・毎日のひとこと", desc: "日常のさりげない確認", actions: "今日もお疲れ様／デイサービス楽しかった？／しっかり食べられた？／返信気にしないでね／明日の準備できたよ／ゆっくり休んでね／いつも見守ってるよ／おやすみなさい" }
     ];
@@ -310,14 +310,14 @@
         select.appendChild(opt);
 
         const card = document.createElement('div');
-        card.className = 'bg-[#181818] border border-[#2e2e2e] hover:border-amber-500/60 rounded-lg p-3.5 cursor-pointer transition flex flex-col justify-between';
+        card.className = 'bg-slate-50 border border-slate-200 hover:border-[#06C755] hover:bg-emerald-50/30 rounded-xl p-3.5 cursor-pointer transition flex flex-col justify-between shadow-sm';
         card.onclick = () => selectPreset(p);
         card.innerHTML = `
           <div>
-            <span class="inline-block bg-amber-500/10 text-amber-400 text-[10px] px-1.5 py-0.5 rounded font-mono mb-1">#${p.id}</span>
-            <div class="text-xs font-bold text-white mb-1">${p.label}</div>
+            <span class="inline-block bg-emerald-100 text-emerald-700 border border-emerald-200 text-[10px] px-2 py-0.5 rounded-full font-mono font-bold mb-1.5">#${p.id}</span>
+            <div class="text-xs font-bold text-slate-800 mb-1">${p.label}</div>
           </div>
-          <div class="text-[11px] text-gray-400 mt-2">相手を1種類に絞る。色だけ変えて出すな。</div>
+          <div class="text-[11px] text-slate-500 mt-2">相手を1種類に絞る。色だけ変えて出すな。</div>
         `;
         grid.appendChild(card);
       });
@@ -397,8 +397,8 @@
           btn.querySelector('div').className = 'text-xs text-white/80 font-semibold';
           content.classList.remove('hidden');
         } else {
-          btn.className = 'py-3 px-4 rounded-xl border border-[#333] bg-[#1e1e1e] hover:bg-[#252525] text-gray-300 text-center font-bold text-sm transition-all duration-200';
-          btn.querySelector('div').className = 'text-xs text-gray-500 font-normal';
+          btn.className = 'py-3 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 text-center font-bold text-sm transition-all duration-200 shadow-sm';
+          btn.querySelector('div').className = 'text-xs text-slate-400 font-normal';
           content.classList.add('hidden');
         }
       }
@@ -430,7 +430,7 @@
         setTimeout(() => {
           btn.classList.remove('btn-copied');
           btnTextEl.textContent = 'この文をコピー';
-          iconEl.innerHTML = `<svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>`;
+          iconEl.innerHTML = `<svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>`;
         }, 2200);
       }
 
@@ -472,14 +472,14 @@
       const checkIcon = document.getElementById(`checkIcon${index}`);
 
       if (isChecked) {
-        itemBox.classList.add('border-emerald-500/50', 'bg-[#1b251e]');
-        itemBox.classList.remove('border-[#2e2e2e]', 'bg-[#181818]');
-        checkIcon.className = 'w-5 h-5 rounded border border-emerald-500 bg-emerald-500 flex items-center justify-center flex-shrink-0 transition';
-        checkIcon.innerHTML = `<svg class="w-3.5 h-3.5 text-black font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>`;
+        itemBox.classList.add('border-emerald-300', 'bg-emerald-50/50');
+        itemBox.classList.remove('border-slate-200', 'bg-slate-50');
+        checkIcon.className = 'w-5 h-5 rounded border border-[#06C755] bg-[#06C755] flex items-center justify-center flex-shrink-0 transition shadow-sm';
+        checkIcon.innerHTML = `<svg class="w-3.5 h-3.5 text-white font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>`;
       } else {
-        itemBox.classList.remove('border-emerald-500/50', 'bg-[#1b251e]');
-        itemBox.classList.add('border-[#2e2e2e]', 'bg-[#181818]');
-        checkIcon.className = 'w-5 h-5 rounded border border-[#444] bg-[#222] flex items-center justify-center flex-shrink-0 transition';
+        itemBox.classList.remove('border-emerald-300', 'bg-emerald-50/50');
+        itemBox.classList.add('border-slate-200', 'bg-slate-50');
+        checkIcon.className = 'w-5 h-5 rounded border border-slate-300 bg-white flex items-center justify-center flex-shrink-0 transition shadow-sm';
         checkIcon.innerHTML = '';
       }
 
@@ -493,12 +493,12 @@
       const title = document.getElementById('checkStatusTitle');
 
       if (checkedCount === 4) {
-        banner.className = 'p-3 bg-emerald-950/40 border border-emerald-800/60 rounded-lg text-xs flex items-center justify-between';
-        title.className = 'font-bold text-emerald-400';
+        banner.className = 'p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl text-xs flex items-center justify-between shadow-sm';
+        title.className = 'font-bold text-[#06C755]';
         title.textContent = '4つ通った。出していい';
       } else {
-        banner.className = 'p-3 bg-red-950/40 border border-red-900/60 rounded-lg text-xs flex items-center justify-between';
-        title.className = 'font-bold text-red-400';
+        banner.className = 'p-3.5 bg-red-50 border border-red-200 rounded-xl text-xs flex items-center justify-between shadow-sm';
+        title.className = 'font-bold text-red-600';
         title.textContent = `まだ${4 - checkedCount}つ、見てない`;
       }
     }
