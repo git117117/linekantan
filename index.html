@@ -86,7 +86,7 @@
       <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
         <div class="flex items-center gap-2">
           <span class="bg-[#06C755] text-white text-xs px-2 py-0.5 rounded font-bold">A</span>
-          <h3 class="text-slate-900 font-bold text-sm">２回コピペで完了！</h3>
+          <h3 class="text-slate-900 font-bold text-sm">３回コピペで完了！</h3>
         </div>
 
         <!-- コピペ 1 -->
@@ -110,6 +110,18 @@
               <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
             </span>
             <span id="prompt2BtnText">この文をコピー</span>
+          </button>
+        </div>
+
+        <!-- コピペ 3（シリーズ化） -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+          <div class="text-xs font-bold text-emerald-700">コピペ３ ／ シリーズ化（前回画像を添付して使う）</div>
+          <p class="text-xs text-slate-700 leading-relaxed font-mono whitespace-pre-line bg-white p-3 rounded-lg border border-slate-200" id="prompt3Preview"></p>
+          <button id="prompt3Btn" onclick="copyText('prompt3')" class="w-full bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold py-3.5 px-4 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow cursor-pointer">
+            <span id="prompt3Icon">
+              <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+            </span>
+            <span id="prompt3BtnText">この文をコピー</span>
           </button>
         </div>
 
@@ -320,8 +332,18 @@
 すべてのマスで、キャラクターと文字の両方に二重縁取りしてにしてださい。内側を不透明な白、外側を黒にし、縁取りの順番。必ず同じ二重縁取りを付けてください。輪郭はくっきりと。影、ぼかし、グラデーション、質感表現は入れないでください。
 背景は画像全体を完全な単色 #55AC44 にしてください。枠線やマス目は描かず、各マスの端には十分な余白を取り、隣のマスにキャラクターや文字がはみ出さないようにしてください。装飾は控えめにして、キャラクターと文字を主役にしてください。`;
 
+      const p3 = `添付した前回のLINEスタンプ画像を今回作るキャラクターと画風の基準にしてください。
+・シリーズを通して同一人物と分かるように描いてください。顔立ち、髪型、前髪、頭身、服、配色を固定し、変えるのは表情・ポーズ・手に持つ小物だけにしてください。
+・LINEスタンプ用イラスト。
+・文字の縁取りはCloud shapeにしてください。
+・前のシリーズのLINEスタンプ画像と文字を重複させないでください。
+・正方形のキャンバスに、横4個×縦4個の等しい正方形で、合計16個を整列させてください。各マスにキャラクターを必ず1体だけ描き、先ほど出した文字を1種類だけ入れてください。16個の文字・ポーズ・表情・小物は互いに重複させないでください。文字は正確な日本語で、大きく読みやすく配置してください。小さく表示しても判別できる、太めの線とシンプルな形、少ない色数の、かわいいフラットなベクターイラスト風にしてください。
+すべてのマスで、キャラクターと文字の両方に二重縁取りしてにしてださい。内側を不透明な白、外側を黒にし、縁取りの順番。必ず同じ二重縁取りを付けてください。輪郭はくっきりと。影、ぼかし、グラデーション、質感表現は入れないでください。
+背景は画像全体を完全な単色 #55AC44 にしてください。枠線やマス目は描かず、各マスの端には十分な余白を取り、隣のマスにキャラクターや文字がはみ出さないようにしてください。装飾は控えめにして、キャラクターと文字を主役にしてください。`;
+
       document.getElementById('prompt1Preview').textContent = p1;
       document.getElementById('prompt2Preview').textContent = p2;
+      document.getElementById('prompt3Preview').textContent = p3;
     }
 
     function switchTab(tabNum) {
@@ -357,6 +379,11 @@
         btn = document.getElementById('prompt2Btn');
         btnTextEl = document.getElementById('prompt2BtnText');
         iconEl = document.getElementById('prompt2Icon');
+      } else if (type === 'prompt3') {
+        text = document.getElementById('prompt3Preview').textContent;
+        btn = document.getElementById('prompt3Btn');
+        btnTextEl = document.getElementById('prompt3BtnText');
+        iconEl = document.getElementById('prompt3Icon');
       }
 
       function showFeedback() {
